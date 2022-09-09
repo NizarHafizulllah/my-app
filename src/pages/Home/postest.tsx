@@ -8,18 +8,22 @@ import SectionHeader from "../../components/sectionheader";
 import Link from "next/link";
 
 
-const Postest = () =>  {
-    const [posts, setPost] = useState(postData);
+interface PostProps{
+    dataPost: Array<any>;
+}
 
+const Postest = (props: PostProps) =>  {
+    // const [posts, setPost] = useState(postData);
+    const post = props.dataPost
 
     return (
        <NewLayout title="Epictus | UI Design">
             <Container>
                 <SectionHeader title="UI DESIGN" />
-                {posts.length ? (
+                {props.dataPost.length ? (
                    <div className="flex -mx-4 flex-wrap mt-6">
-                        {posts.map((post, index) => (
-                            <Link key={post.id} href={`/Home/detail/${index}`}>
+                        {post.map((post, index) => (
+                            <Link key={post.id} href={`/Home/detail/${post.id}`}>
                                 <div className="lg:w-4/12 md:w-6/12 w-full px-4 py-6 cursor-pointer">
                                     <CardPost {...post}/>
                                 </div>
@@ -31,7 +35,6 @@ const Postest = () =>  {
                         <h2 className="text-5xl">No result</h2>
                         <p className="text-xl mt-4 text-white/60 md:w-8/12 mx-auto">We couldn’t find any posts with the keyword `yahahahayuk`. Please try another keyword.</p>
                     </div>
-                
                 )}
             </Container>
         </NewLayout>
@@ -39,3 +42,11 @@ const Postest = () =>  {
 }
 
 export default Postest
+
+export async function getStaticProps(){
+    return {
+        props: {
+            dataPost: postData,
+        }
+    }
+}

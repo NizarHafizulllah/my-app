@@ -6,10 +6,26 @@ import Container from "../../../components/container";
 import PostAuthor from "../../../components/FeaturePost/postauthor";
 
 
-const Detail = () => {
+interface PostProps{
+    id: number
+    thumbnail: string,
+    category: string,
+    date: string,
+    title: string,
+    shortDescription: string,
+    authorAvatar: string,
+    authorName: string,
+    authorJob: string,
+}
+
+interface PostDetailProps{
+    post: PostProps
+}
+
+const Detail = (props: PostDetailProps) => {
     const router = useRouter()
-    const { id } = router.query
-    const post = postData[Number(id)];
+ 
+    const post = props.post;
 
     return (
         <NewLayout title="Epictus | Detail">
@@ -46,3 +62,34 @@ const Detail = () => {
 }
 
 export default Detail
+
+export async function getStaticPath(){
+   
+    const paths = postData.map((post: PostProps) => ({
+            params: {
+                id: `${post.id}`,
+            },
+    }));
+    return {
+        paths,
+        fallback: false
+    }
+}
+interface getStaticProps{
+    params: {
+        id: string;
+    }
+}
+
+export async function getServerSideProps(context: getStaticProps){
+    const { id } = context.params;
+    var elementPos = postData.map(function(x) {return x.id; }).indexOf(Number(id));
+    
+    const post = postData[elementPos];
+
+    return {
+        props: {
+            post,
+        }
+    }
+}

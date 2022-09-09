@@ -11,7 +11,7 @@ const NewLayout = ({...props}) => {
             </Head>
             <Navbar/>
                 {props.children}
-            <Footer/>
+            <Footer />
         </div>
     )
 }
