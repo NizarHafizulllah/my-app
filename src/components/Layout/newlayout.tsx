@@ -1,9 +1,15 @@
 
 import Head from "next/head"
+import { ReactNode } from "react"
 import Footer from "../footer"
 import Navbar from "../Navbar"
 
-const NewLayout = ({...props}) => {
+interface LayoutProps{
+    title: string,
+    children: ReactNode
+}
+
+const NewLayout = (props: LayoutProps) => {
     return (
         <div className="bg-gradient-to-b from-gray-600 to-gray-900 min-h-screen font-Patrick text-white lg:px-10">
             <Head>

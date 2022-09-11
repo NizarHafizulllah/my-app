@@ -10,7 +10,7 @@ const Navbar = () => {
     const [dropddown, setDropdown] = useState(false);
     const [search, setSearch] = useState(false);
     const subMenuList = [
-        { text: 'Internet', href: '#' },
+        { text: 'Live Update', href: '/Home/postliverefresh' },
         { text: 'Books', href: '#' },
         { text: 'Open Source', href: '#' }
     ];
@@ -48,8 +48,8 @@ const Navbar = () => {
                             </button>
                             <ul className="lg:space-x-14 flex lg:items-center flex-col lg:flex-row space-y-4 lg:space-y-0">
                                 <Link href="/Home/postest"><li><a href="#!" className="hover:underline">UI Design</a></li></Link>
-                                <Link href="/Home/postest"><li><a href="#!" className="hover:underline">Front-End</a></li></Link>
-                                <li><a href="#!" className="hover:underline">Back-End</a></li>
+                                <Link href="/Home/userlist"><li><a href="#!" className="hover:underline">Front-End</a></li></Link>
+                                <Link href="/Home/posttable"><li><a href="#!" className="hover:underline">Back-End</a></li></Link>
                                 <li className="relative">
                                     <a href="#!" className="hover:underline cursor-pointer flex items-center" onClick={() => setDropdown(!dropddown)}>
                                         Lainnya 
