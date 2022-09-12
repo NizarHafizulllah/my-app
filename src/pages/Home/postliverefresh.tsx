@@ -95,8 +95,8 @@ const PostLiveRefresh = () => {
 
     useEffect(() => {
         getData().then(() => {
-            setTimeout(() => setLoading(false), 2000);
-            
+            // setTimeout(() => setLoading(false), 2000);
+            setLoading(false);
         });
     }, [pageNumber])
 
