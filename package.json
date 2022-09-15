@@ -9,9 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.1",
+    "@heroicons/react": "^2.0.11",
+    "@tinymce/tinymce-react": "^4.2.0",
+    "copy-webpack-plugin": "^11.0.0",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-to-print": "^2.14.7",
+    "sass": "^1.54.9"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.5.0",

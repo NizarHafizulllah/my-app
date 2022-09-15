@@ -3,7 +3,6 @@ import { useState } from "react"
 import Container from "./container";
 
 
-
 const Navbar = () => {
 
     const [offCanvas, setOffCanvas] = useState(false);
@@ -11,7 +10,7 @@ const Navbar = () => {
     const [search, setSearch] = useState(false);
     const subMenuList = [
         { text: 'Live Update', href: '/Home/postliverefresh' },
-        { text: 'Books', href: '#' },
+        { text: 'Element', href: '/Home/elementpage' },
         { text: 'Open Source', href: '#' }
     ];
 
@@ -56,12 +55,13 @@ const Navbar = () => {
                                         <svg className="ml-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 6L8 10L12 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                         </svg>
-                                    </a> 
+                                    </a>
+                                   
                                     {dropddown && (
-                                    <ul className="absolute w-[200px] bg-gray-800 rounded shadow-2xl mt-4">
+                                    <ul className="absolute w-[200px] bg-gray-800 rounded shadow-2xl mt-4 z-50">
                                         {
                                             subMenuList.map((row, index) => 
-                                                <li key={index} ><a href={row.href} className="flex py-3 px-3 border-b border-white/5 hover:bg-slate-900 rounded">{row.text}</a></li>
+                                                <Link href={row.href} key={index}><li ><a href="#!" className="flex py-3 px-3 border-b border-white/5 hover:bg-slate-900 rounded">{row.text}</a></li></Link>
                                             )
                                         }
                                     </ul>

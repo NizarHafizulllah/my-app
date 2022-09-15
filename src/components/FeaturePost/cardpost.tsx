@@ -1,12 +1,17 @@
-import ContentPost from "./contentpost"
+import { CardProps } from '../../../interface';
+import ContentPost from './contentpost';
 
-const CardPost = ({ ...infoPost}) => {
-    return (
-        <article>
-            <img src={infoPost.thumbnail} className="w-full rounded mb-4" alt="" />
-            <ContentPost  {...infoPost} />
-        </article>
-    )
-}
+const CardPost = ({ content, thumbnail }: CardProps) => {
+  return (
+    <article>
+      <img src={thumbnail} className="w-full rounded mb-4" alt="" />
+      <ContentPost
+        author={content.author}
+        description={content.description}
+        title={content.title}
+      />
+    </article>
+  );
+};
 
-export default CardPost
+export default CardPost;
